@@ -44,7 +44,7 @@ jobs:
             cd scripts
             sudo bash setup/android_build_env.sh
             cd .. 
-            sudo -E apt-get -qq install bc build-essential zip curl libstdc++6 git wget python gcc clang libssl-dev rsync flex curl  bison aria2
+            sudo -E apt-get -qq install bc build-essential zip ccache curl libstdc++6 git wget python gcc clang libssl-dev rsync flex curl  bison aria2
             sudo curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
             sudo chmod a+rx /usr/local/bin/repo
             
@@ -59,7 +59,7 @@ jobs:
        - name: Build
          run: |
               cd work
-              . build/envsetup.sh &&lunch twrp_$DEVICE-userdebug &&export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET
+              . build/envsetup.sh && lunch twrp_$DEVICE-userdebug && export USE_CCACHE=1 && export ALLOW_MISSING_DEPENDENCIES=true && ccache -M 10G && export CCACHE_DIR=~/ccache/twrp/veux && export CCACHE_EXEC=$(which ccache) && ccache -z && mka $TARGET
              
        - uses: actions/upload-artifact@v2
          with:
