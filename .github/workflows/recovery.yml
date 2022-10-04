@@ -57,6 +57,7 @@ jobs:
              git clone $DT_LINK --depth=1 --single-branch $DT_PATH
              git clone https://github.com/anant-goel/kernel_xiaomi_veux-headers --depth=1 -b twelve kernel/xiaomi/sm6375
              git clone https://github.com/anant-goel/vendor_xiaomi_veux --depth=1 -b thirteen vendor/xiaomi/veux
+             git clone https://github.com/LineageOS/android_hardware_xiaomi --depth=1 -b lineage-20 hardware/xiaomi
              
        - name: Build
          run: |
