@@ -17,7 +17,7 @@ env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
   MANIFEST_BRANCH: twrp-12.1
   DEVICE: veux
-  DT_LINK: https://github.com/anant-goel/orangefox_device_xiaomi_veux
+  DT_LINK: https://github.com/anant-goel/orangefox_device_xiaomi_veux -b OF_12
   DT_PATH: device/xiaomi/veux
   TARGET: recoveryimage
   TZ: Asia/Kolkata
